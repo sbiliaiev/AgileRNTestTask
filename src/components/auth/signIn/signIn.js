@@ -8,6 +8,8 @@ import color from '../../../constants/config/colors';
 import { userIcon, lockIcon } from '../../../constants/config/icons';
 import styles from './styles';
 
+import api from '../../../api';
+
 export default class SignIn extends React.Component {
   state = {
     username: '',
@@ -20,6 +22,16 @@ export default class SignIn extends React.Component {
       obj[name] = value;
       return obj;
     });
+  }
+
+  submitAction = (user) => {
+    api.auth.signIn(user)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -52,7 +64,7 @@ export default class SignIn extends React.Component {
 
 
           <RoundedButton
-            action={() => this.props.changeCurrentScreen('signUp')}
+            action={() => this.submitAction(this.state)}
             text="Sign In"
             bgColor={color.SAN_MARINO}
             textColor={color.WHITE}

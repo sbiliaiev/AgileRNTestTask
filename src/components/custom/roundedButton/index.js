@@ -17,6 +17,7 @@ const RoundedButton = (props) => {
   return (
     <TouchableHighlight
       underlayColor="transparent"
+      disabled={props.disabled}
       onPress={props.disabled ? () => {} : props.action}
     >
       <View
