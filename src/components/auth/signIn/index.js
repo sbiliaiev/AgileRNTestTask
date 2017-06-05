@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import SignIn from './signIn';
 import appAction from '../../../actions/appActions';
+import authActions from '../../../actions/authActions';
 
 const mapStateToProps = store => ({
   
@@ -12,6 +13,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(appAction.changeCurrentScreen(route, reset)),
   goBack: () =>
     dispatch(appAction.goBack()),
+  signIn: user =>
+    dispatch(authActions.signIn(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

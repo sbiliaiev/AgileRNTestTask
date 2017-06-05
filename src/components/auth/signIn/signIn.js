@@ -28,6 +28,7 @@ export default class SignIn extends React.Component {
     api.auth.signIn(user)
       .then((res) => {
         console.log(res);
+        this.props.signIn(res);
       })
       .catch((err) => {
         console.log(err);
@@ -80,4 +81,5 @@ export default class SignIn extends React.Component {
 
 SignIn.propTypes = {
   changeCurrentScreen: PropTypes.func.isRequired,
+  signIn: PropTypes.func.isRequired,
 };
