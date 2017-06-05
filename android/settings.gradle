@@ -1,0 +1,3 @@
+rootProject.name = 'AgileRNTestTask'
+
+include ':app'
