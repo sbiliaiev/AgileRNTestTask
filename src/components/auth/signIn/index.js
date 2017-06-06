@@ -6,6 +6,7 @@ import authActions from '../../../actions/authActions';
 
 const mapStateToProps = store => ({
   username: store.auth.get('username'),
+  errorMessage: store.auth.get('errorMessage'),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -15,6 +16,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(appAction.goBack()),
   signIn: user =>
     dispatch(authActions.signIn(user)),
+  checkSignInInfo: () =>
+    dispatch(authActions.checkSignInInfo()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

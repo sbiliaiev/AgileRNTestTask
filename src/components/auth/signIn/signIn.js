@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import PropTypes from 'react-proptypes';
 
 import RoundedButton from '../../custom/roundedButton';
@@ -14,10 +14,39 @@ export default class SignIn extends React.Component {
     password: '',
   };
 
+  componentDidMount() {
+    this.props.checkSignInInfo();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.errorMessage !== nextProps.errorMessage &&
+      nextProps.errorMessage.length > 0
+    ) {
+      console.log('HERE');
+      Alert.alert('ERROR', nextProps.errorMessage);
+      this.clearStateInfo();
+    }
+
+    if (this.props.username !== nextProps.username) {
+      this.props.changeCurrentScreen('main');
+    }
+  }
+
+
   changeStateInfo = (name, value) => {
     this.setState((state) => {
       const obj = { ...state };
       obj[name] = value;
+      return obj;
+    });
+  }
+
+  clearStateInfo = () => {
+    this.setState((state) => {
+      const obj = { ...state };
+      obj.username = '';
+      obj.password = '';
       return obj;
     });
   }
@@ -72,5 +101,7 @@ export default class SignIn extends React.Component {
 
 SignIn.propTypes = {
   changeCurrentScreen: PropTypes.func.isRequired,
+  checkSignInInfo: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired,
 };
