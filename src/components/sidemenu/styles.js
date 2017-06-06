@@ -1,20 +1,20 @@
-import { StyleSheet, PixelRatio } from 'react-native';
+import { StyleSheet } from 'react-native';
 
+import { SCREEN_HEIGHT } from '../../constants/config/dimensions';
 import color from '../../constants/config/colors';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: color.SILVER,
-    paddingTop: 40,
+    paddingTop: SCREEN_HEIGHT * 0.1,
+    // paddingTop: 40,
   },
   menuItem: {
-    height: 50,
+    height: SCREEN_HEIGHT * 0.1,
     paddingLeft: 30,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    borderBottomWidth: 2 / PixelRatio.get(),
-    borderColor: color.BLACK,
   },
   menuItemText: {
     fontSize: 18,

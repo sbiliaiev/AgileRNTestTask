@@ -8,6 +8,8 @@ import SignIn from './components/auth/signIn';
 import Main from './components/main';
 
 import Home from './components/home';
+import StackOverflow from './components/so';
+import SignOut from './components/auth/signOut';
 
 const scenes = Actions.create(
   <Scene key="root" hideNavBar>
@@ -29,6 +31,16 @@ const scenes = Actions.create(
         component={Home}
         title="Home Screen"
         initial
+      />
+      <Scene
+        key="main/so"
+        component={StackOverflow}
+        title="Stack Overflow"
+      />
+      <Scene
+        key="main/signOut"
+        component={SignOut}
+        title="Sign Out"
       />
 
     </Scene>
