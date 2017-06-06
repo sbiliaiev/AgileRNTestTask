@@ -8,8 +8,6 @@ import color from '../../../constants/config/colors';
 import { userIcon, lockIcon } from '../../../constants/config/icons';
 import styles from './styles';
 
-import api from '../../../api';
-
 export default class SignIn extends React.Component {
   state = {
     username: '',
@@ -25,14 +23,7 @@ export default class SignIn extends React.Component {
   }
 
   submitAction = (user) => {
-    api.auth.signIn(user)
-      .then((res) => {
-        console.log(res);
-        this.props.signIn(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.signIn(user);
   }
 
   render() {

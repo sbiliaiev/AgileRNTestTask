@@ -5,7 +5,7 @@ import appAction from '../../../actions/appActions';
 import authActions from '../../../actions/authActions';
 
 const mapStateToProps = store => ({
-  
+  username: store.auth.get('username'),
 });
 
 const mapDispatchToProps = dispatch => ({

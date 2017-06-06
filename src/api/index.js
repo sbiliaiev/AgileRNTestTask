@@ -1,7 +1,7 @@
 import auth from './auth';
-import stackoverflow from './stackoverflow';
+import so from './so';
 
 export default {
   auth,
-  stackoverflow,
+  so,
 };
