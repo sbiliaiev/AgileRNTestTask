@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import PropTypes from 'react-proptypes';
+import he from 'he';
 
 import styles from './styles';
 
@@ -15,10 +16,10 @@ export default class StackOverflow extends React.Component {
     }
   }
 
-  renderListItem = ({ item }) => (
-    <View style={styles.listItem}>
+  renderListItem = ({ item, index }) => (
+    <View style={[styles.listItem, index % 2 === 0 ? styles.highlight : {}]}>
       <Text style={styles.listItemText}>
-        {item.title}
+        {he.decode(item.title)}
       </Text>
     </View>
   )

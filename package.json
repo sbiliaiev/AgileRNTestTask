@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.16.2",
+		"he": "^1.1.1",
 		"immutable": "^3.8.1",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.44.2",

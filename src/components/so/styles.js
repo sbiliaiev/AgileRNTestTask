@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import color from '../../constants/config/colors';
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -12,5 +14,8 @@ export default StyleSheet.create({
   },
   listItemText: {
     fontSize: 16,
+  },
+  highlight: {
+    backgroundColor: color.SILVER,
   },
 });
