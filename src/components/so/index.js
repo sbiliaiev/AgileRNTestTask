@@ -1,10 +1,15 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
-const StackOverflow = () => (
-  <View>
-    <Text>STACK OVERFLOW</Text>
-  </View>
-);
+import StackOverflow from './so';
+import soActions from '../../actions/soActions';
 
-export default StackOverflow;
+const mapStateToProps = store => ({
+  list: store.so.get('list').toJS(),
+});
+
+const mapDispatchToProps = dispatch => ({
+  getQuestions: page =>
+    dispatch(soActions.getQuestions(page)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StackOverflow);

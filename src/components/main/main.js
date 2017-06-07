@@ -13,6 +13,12 @@ export default class Main extends React.Component {
     open: false,
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.username === '') {
+      this.props.changeCurrentScreen('signIn', true);
+    }
+  }
+
   handeSidebarOpen = () => {
     this.setState(state => ({
       open: !state.open,
@@ -51,7 +57,7 @@ export default class Main extends React.Component {
               this.props.children[0].component,
               {
                 username: this.props.username,
-                changeCurrentScreen: this.props.changeCurrentScreen,
+                signOut: this.props.signOut,
               },
             )
           }
@@ -66,6 +72,7 @@ Main.propTypes = {
   title: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   changeCurrentScreen: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired,
   children: PropTypes.arrayOf(
     PropTypes.any,
   ).isRequired,

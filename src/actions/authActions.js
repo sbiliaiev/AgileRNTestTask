@@ -1,4 +1,3 @@
-import { Actions, ActionConst } from 'react-native-router-flux';
 import { AsyncStorage } from 'react-native';
 
 import api from '../api';
@@ -29,13 +28,18 @@ const signIn = user => (dispatch) => {
 const checkSignInInfo = () => (dispatch) => {
   AsyncStorage.getItem('user')
     .then((user) => {
-      dispatch(signIn(JSON.parse(user)));
+      if (user) {
+        dispatch(signIn(JSON.parse(user)));
+      }
     });
 };
 
-const signOut = () => ({
-  type: constant.SET_USER_LOGGED_OUT,
-});
+const signOut = () => {
+  AsyncStorage.removeItem('user');
+  return {
+    type: constant.SET_USER_LOGGED_OUT,
+  };
+};
 
 export default {
   signIn,
