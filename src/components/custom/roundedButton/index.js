@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableHighlight, Image, Text } from 'react-native';
+import PropTypes from 'react-proptypes';
 
 import styles from './styles';
 
@@ -23,8 +24,9 @@ const RoundedButton = (props) => {
       <View
         style={[styles.buttonContainer, {
           backgroundColor: props.disabled ? props.bgColorDisable : props.bgColor,
-          justifyContent: props.img ? 'space-between' : 'center'
-        }, border, propStyles]}>
+          justifyContent: props.img ? 'space-between' : 'center',
+        }, border, propStyles]}
+      >
         {
           props.imgRight ? null : img
         }
@@ -40,16 +42,16 @@ const RoundedButton = (props) => {
 };
 
 RoundedButton.propTypes = {
-  action: React.PropTypes.func.isRequired,
-  bgColor: React.PropTypes.string.isRequired,
-  textColor: React.PropTypes.string.isRequired,
-  text: React.PropTypes.string.isRequired,
-  imgRight: React.PropTypes.bool,
-  img: React.PropTypes.number,
-  borderColor: React.PropTypes.string,
-  style: React.PropTypes.object,
-  disabled: React.PropTypes.bool,
-  bgColorDisable: React.PropTypes.string,
+  action: PropTypes.func.isRequired,
+  bgColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  imgRight: PropTypes.bool,
+  img: PropTypes.number,
+  borderColor: PropTypes.string,
+  style: PropTypes.object,
+  disabled: PropTypes.bool,
+  bgColorDisable: PropTypes.string,
 };
 
 RoundedButton.defaultProps = {

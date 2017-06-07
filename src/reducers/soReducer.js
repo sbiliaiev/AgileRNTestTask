@@ -11,7 +11,9 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case constant.GET_QUESTION_LIST:
       return state
-        .set('list', fromJS(action.list));
+        .set('page', state.get('page') + 1)
+        .set('list', state.get('list').concat(action.list));
+        // .set('list', fromJS(action.list));
     default:
       return state;
   }

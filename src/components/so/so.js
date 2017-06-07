@@ -1,20 +1,28 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ListView } from 'react-native';
 import PropTypes from 'react-proptypes';
 import he from 'he';
 
 import styles from './styles';
 
 export default class StackOverflow extends React.Component {
+  // state = {
+  //   page: 1,
+  // }
+
   componentDidMount() {
-    this.props.getQuestions(1);
+    this.props.getQuestions(this.props.page);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.list !== this.props.list) {
-      console.log(nextProps.list);
-    }
-  }
+  // getMoreData = () => {
+  //   this.setState((state) => {
+  //     const obj = { ...state };
+  //     obj.page += 1;
+  //     return obj;
+  //   }, () => {
+  //     this.props.getQuestions(this.state.page);
+  //   });
+  // }
 
   renderListItem = ({ item, index }) => (
     <View style={[styles.listItem, index % 2 === 0 ? styles.highlight : {}]}>
@@ -37,12 +45,13 @@ export default class StackOverflow extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>STACKOVERFLOW BITCH</Text>
         <FlatList
           data={this.props.list}
-          keyExtractor={item => item.link}
+          keyExtractor={(item, index) => index}
           renderItem={this.renderListItem}
           ItemSeparatorComponent={this.renderSeparator}
+          onEndReached={() => this.props.getQuestions(this.props.page)}
+          onEndReachedThreshold={0}
         />
       </View>
     );
@@ -51,4 +60,8 @@ export default class StackOverflow extends React.Component {
 
 StackOverflow.propTypes = {
   getQuestions: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  list: PropTypes.arrayOf(
+    PropTypes.any.isRequired,
+  ).isRequired,
 };

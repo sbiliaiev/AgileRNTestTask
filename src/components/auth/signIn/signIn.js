@@ -23,7 +23,6 @@ export default class SignIn extends React.Component {
       this.props.errorMessage !== nextProps.errorMessage &&
       nextProps.errorMessage.length > 0
     ) {
-      console.log('HERE');
       Alert.alert('ERROR', nextProps.errorMessage);
       this.clearStateInfo();
     }
@@ -104,4 +103,5 @@ SignIn.propTypes = {
   checkSignInInfo: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
 };

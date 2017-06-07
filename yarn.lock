@@ -3528,6 +3528,14 @@ react-native-experimental-navigation@0.27.x:
     clamp "^1.0.1"
     fbjs "^0.8.1"
 
+react-native-infinite-scroll-view@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-infinite-scroll-view/-/react-native-infinite-scroll-view-0.4.3.tgz#bc5dfb1645b8966bb6686d4cba899acb229ca003"
+  dependencies:
+    prop-types "^15.5.10"
+    react-clone-referenced-element "^1.0.1"
+    react-native-scrollable-mixin "^1.0.0"
+
 react-native-router-flux@^3.39.2:
   version "3.39.2"
   resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.39.2.tgz#f5373136440e627dfc39edc61cb4bf54581245e0"
@@ -3536,6 +3544,10 @@ react-native-router-flux@^3.39.2:
     react-native-experimental-navigation "0.27.x"
     react-native-tabs "^1.0.9"
     react-static-container "1.0.1"
+
+react-native-scrollable-mixin@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-mixin/-/react-native-scrollable-mixin-1.0.1.tgz#34a32167b64248594154fd0d6a8b03f22740548e"
 
 react-native-tabs@^1.0.9:
   version "1.0.9"

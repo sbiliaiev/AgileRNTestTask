@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
+import PropTypes from 'react-proptypes';
 
 import { SCREEN_HEIGHT } from '../../../constants/config/dimensions';
 import styles from './styles';
@@ -63,20 +64,20 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  children: React.PropTypes.arrayOf(
-    React.PropTypes.oneOfType([
-      React.PropTypes.shape({
-        img: React.PropTypes.node.isRequired,
-        action: React.PropTypes.func,
+  children: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        img: PropTypes.node.isRequired,
+        action: PropTypes.func,
       }),
-      React.PropTypes.shape({
-        text: React.PropTypes.string.isRequired,
-        action: React.PropTypes.func,
+      PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        action: PropTypes.func,
       }),
-      React.PropTypes.string,
+      PropTypes.string,
     ]),
   ).isRequired,
-  visible: React.PropTypes.bool.isRequired,
+  visible: PropTypes.bool.isRequired,
 };
 
 export default Header;
