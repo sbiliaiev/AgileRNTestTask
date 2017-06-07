@@ -41,6 +41,8 @@ export default class Main extends React.Component {
         tapToClose
         acceptPan
         openDrawerOffset={0.3}
+        onClose={() => this.setState({ open: false })}
+        onOpen={() => this.setState({ open: true })}
         panCloseMask={100}
         panOpenMask={0.10}
         tweenEasing={'easeInOutSine'}

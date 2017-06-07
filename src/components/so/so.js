@@ -11,7 +11,9 @@ export default class StackOverflow extends React.Component {
   // }
 
   componentDidMount() {
-    this.props.getQuestions(this.props.page);
+    if (this.props.page === 1) {
+      this.props.getQuestions(this.props.page);
+    }
   }
 
   // getMoreData = () => {
