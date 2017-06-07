@@ -8,7 +8,7 @@ import Header from '../custom/header';
 import SideMenu from '../sidemenu';
 import styles from './styles';
 
-export default class Main extends React.Component {
+export default class Main extends React.PureComponent {
   state = {
     open: false,
   }
