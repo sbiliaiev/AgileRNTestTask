@@ -1,5 +1,4 @@
-const mid = ({ dispatch, getState }) => next => (action) => {
-  console.log('HERE', action);
+const middleware = ({ dispatch, getState }) => next => (action) => {
   if (typeof action === 'function') {
     return action(dispatch, getState);
   }
@@ -33,4 +32,4 @@ const mid = ({ dispatch, getState }) => next => (action) => {
     );
 };
 
-export default mid;
+export default middleware;

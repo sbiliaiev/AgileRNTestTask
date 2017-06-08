@@ -2,19 +2,14 @@ import api from '../api';
 
 import constant from '../constants/soConstants';
 
-const getQuestions = page => (dispatch) => {
-  api.so.getQuestions(page)
-    .then((res) => {
-      console.log('response', res);
-      dispatch({
-        type: constant.GET_QUESTION_LIST,
-        list: res.data.items,
-      });
-    })
-    .catch((err) => {
-      console.log('error', err);
-    });
-};
+const getQuestions = page => ({
+  types: [
+    constant.START_LOADING_QUESTIONS,
+    constant.SUCCESS_LOADING_QUESTIONS,
+    constant.FAIL_LOADING_QUESTIONS,
+  ],
+  promise: api.so.getQuestions(page),
+});
 
 export default {
   getQuestions,

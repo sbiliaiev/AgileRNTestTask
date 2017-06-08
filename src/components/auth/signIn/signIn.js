@@ -14,10 +14,6 @@ export default class SignIn extends React.Component {
     password: '',
   };
 
-  componentDidMount() {
-    this.props.checkSignInInfo();
-  }
-
   componentWillReceiveProps(nextProps) {
     if (
       this.props.errorMessage !== nextProps.errorMessage &&
@@ -100,7 +96,6 @@ export default class SignIn extends React.Component {
 
 SignIn.propTypes = {
   changeCurrentScreen: PropTypes.func.isRequired,
-  checkSignInInfo: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
   errorMessage: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,

@@ -16,8 +16,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(appAction.goBack()),
   signIn: user =>
     dispatch(authActions.signIn(user)),
-  checkSignInInfo: () =>
-    dispatch(authActions.checkSignInInfo()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
