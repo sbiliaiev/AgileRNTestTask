@@ -37,14 +37,14 @@ const signIn = (user) => {
   };
 };
 
-// const signOut = () => ({
-//   types: [
-//     constant.START_SIGN_OUT_ACTION,
-//     constant.SUCCESS_SIGN_OUT_ACTION,
-//     constant.FAIL_SIGN_OUT_ACTION,
-//   ],
-//   promise: AsyncStorage.removeItem('user'),
-// });
+const signOut = () => ({
+  types: [
+    constant.START_SIGN_OUT_ACTION,
+    constant.SUCCESS_SIGN_OUT_ACTION,
+    constant.FAIL_SIGN_OUT_ACTION,
+  ],
+  promise: api.auth.signOut(),
+});
 
 const checkSignInInfo = () => (dispatch) => {
   AsyncStorage.getItem('user')
@@ -55,12 +55,12 @@ const checkSignInInfo = () => (dispatch) => {
     });
 };
 
-const signOut = () => {
-  AsyncStorage.removeItem('user');
-  return {
-    type: constant.SET_USER_LOGGED_OUT,
-  };
-};
+// const signOut = () => {
+//   AsyncStorage.removeItem('user');
+//   return {
+//     type: constant.SET_USER_LOGGED_OUT,
+//   };
+// };
 
 export default {
   signIn,

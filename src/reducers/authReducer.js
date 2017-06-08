@@ -11,19 +11,31 @@ const initialState = Map({
 export default function (state = initialState, action) {
   switch (action.type) {
     case constant.START_SIGN_IN_ACTION:
-    console.log('start', action);
       return state
         .set('status', 'loading');
     case constant.SUCCESS_SIGN_IN_ACTION:
-    console.log('success', action);
       return state
         .set('status', 'success')
+        .set('errorMessage', initialState.get('errorMessage'))
         .set('username', action.result.username);
     case constant.FAIL_SIGN_IN_ACTION:
-    console.log('error', action);
       return state
         .set('status', 'fail')
-        .set('errormessage', action.message);
+        .set('errorMessage', action.error.message);
+
+    case constant.START_SIGN_OUT_ACTION:
+      return state
+        .set('status', 'loading');
+    case constant.SUCCESS_SIGN_OUT_ACTION:
+      return state
+        .set('status', 'success')
+        .set('errorMessage', initialState.get('errorMessage'))
+        .set('username', initialState.get('username'));
+    case constant.FAIL_SIGN_OUT_ACTION:
+      return state
+        .set('status', 'fail')
+        .set('errorMessage', action.error.message);
+
     default:
       return state;
 
