@@ -27,7 +27,7 @@ export default class StackOverflow extends React.Component {
   // }
 
   renderListItem = ({ item, index }) => (
-    <View style={[styles.listItem, index % 2 === 0 ? styles.highlight : {}]}>
+    <View style={[styles.listItem, index % 2 === 0 ? styles.highlight : styles.whiteFill]}>
       <Text style={styles.listItemText}>
         {he.decode(item.title)}
       </Text>
